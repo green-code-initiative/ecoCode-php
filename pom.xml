@@ -42,10 +42,7 @@
 
         <sonarqube.version>9.4.0.54424</sonarqube.version>
         <sonarjava.version>7.19.0.31550</sonarjava.version>
-        <sonarpython.version>4.3.0.11660</sonarpython.version>
         <sonarphp.version>3.29.0.9684</sonarphp.version>
-
-        <sonar-analyzer-commons.version>2.5.0.1358</sonar-analyzer-commons.version>
 
         <sonar-packaging.version>1.21.0.505</sonar-packaging.version>
         <sonar.skipDependenciesPackaging>true</sonar.skipDependenciesPackaging>
@@ -54,7 +51,7 @@
         <assertJ.version>3.23.1</assertJ.version>
         <mockito.version>5.3.1</mockito.version>
 
-        <google.re2j>1.7</google.re2j>
+        <!-- <google.re2j>1.7</google.re2j> -->
 
         <ecocode-rules-specifications.version>0.0.1</ecocode-rules-specifications.version>
 
