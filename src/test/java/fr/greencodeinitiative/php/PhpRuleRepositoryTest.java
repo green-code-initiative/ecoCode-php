@@ -78,8 +78,8 @@ class PhpRuleRepositoryTest {
   @Test
   void testRegistredRules() {
     // TODO DDC - to re-enable when ecocode-rules-specifications will be releases on maven central
-    // assertThat(repository.rules()).hasSize(10);
-    assertThat(repository.rules()).hasSize(9);
+    assertThat(repository.rules()).hasSize(10);
+    // assertThat(repository.rules()).hasSize(9);
   }
 
   @Test

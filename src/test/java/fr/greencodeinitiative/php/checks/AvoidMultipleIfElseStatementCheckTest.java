@@ -33,7 +33,7 @@ public class AvoidMultipleIfElseStatementCheckTest {
     @Test
     public void test() throws Exception {
         // TODO DDC - to re-enable when ecocode-rules-specifications will be releases on maven central
-        // PHPCheckTest.check(new AvoidMultipleIfElseStatementCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidMultipleIfElseStatement.php")));
+        PHPCheckTest.check(new AvoidMultipleIfElseStatementCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidMultipleIfElseStatement.php")));
     }
 
 }
