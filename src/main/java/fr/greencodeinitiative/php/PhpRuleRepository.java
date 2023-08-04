@@ -63,7 +63,6 @@ public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleReposito
             IncrementCheck.class,
             NoFunctionCallWhenDeclaringForLoop.class,
             UseOfMethodsForBasicOperations.class,
-            // TODO DDC - to re-enable when ecocode-rules-specifications will be releases on maven central
             AvoidMultipleIfElseStatementCheck.class
     );
   }

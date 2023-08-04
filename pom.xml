@@ -51,8 +51,7 @@
         <assertJ.version>3.23.1</assertJ.version>
         <mockito.version>5.3.1</mockito.version>
 
-        <!-- <google.re2j>1.7</google.re2j> -->
-
+        <!-- temporary version waiting for real automatic release in ecocode repository -->
         <ecocode-rules-specifications.version>0.0.2</ecocode-rules-specifications.version>
 
     </properties>
@@ -79,13 +78,6 @@
             <version>${sonarqube.version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- for security on regex patterns : https://github.com/google/re2j -->
-        <!-- TODO DDC : in progress because of pb with external dependencies in plugins -->
-<!--        <dependency>-->
-<!--            <groupId>com.google.re2j</groupId>-->
-<!--            <artifactId>re2j</artifactId>-->
-<!--        </dependency>-->
 
         <!-- TEST sources dependencies -->
         <dependency>
