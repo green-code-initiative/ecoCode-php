@@ -56,7 +56,7 @@
 
         <google.re2j>1.7</google.re2j>
 
-        <ecocode-rules-specifications.version>1.3.2-SNAPSHOT</ecocode-rules-specifications.version>
+        <ecocode-rules-specifications.version>0.0.1</ecocode-rules-specifications.version>
 
     </properties>
 
