@@ -54,9 +54,12 @@
         <!-- temporary version waiting for real automatic release in ecocode repository -->
         <ecocode-rules-specifications.version>0.0.2</ecocode-rules-specifications.version>
 
+        <sonar-analyzer-commons.version>2.5.0.1358</sonar-analyzer-commons.version>
+
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>ecocode-rules-specifications</artifactId>
@@ -77,6 +80,13 @@
             <artifactId>sonar-plugin-api</artifactId>
             <version>${sonarqube.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- To keep because of dependency used at runtime (or else error at starting SonarQube) -->
+        <dependency>
+            <groupId>org.sonarsource.analyzer-commons</groupId>
+            <artifactId>sonar-analyzer-commons</artifactId>
+            <version>${sonar-analyzer-commons.version}</version>
         </dependency>
 
         <!-- TEST sources dependencies -->
@@ -185,6 +195,51 @@
                     <sonarQubeMinVersion>${sonarqube.version}</sonarQubeMinVersion>
                     <jreMinVersion>${java.version}</jreMinVersion>
                 </configuration>
+            </plugin>
+            <!-- To keep because of dependency sonar-analyzer-commons -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <!-- common configuration for shade plugin -->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>commons-*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/**</exclude>
+                                        <exclude>org/sonar/api/batch/sensor/**</exclude>
+                                        <exclude>javax/annotation/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>junit:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
