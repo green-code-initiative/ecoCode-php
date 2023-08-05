@@ -16,4 +16,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Deleted
 
-[unreleased]: https://github.com/green-code-initiative/ecoCode/compare/v1.3.1...HEAD
+[unreleased]: https://github.com/green-code-initiative/ecoCode-php/compare/v0.0.1...HEAD
