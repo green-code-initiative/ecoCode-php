@@ -48,12 +48,12 @@ Ready to use binaries are available [from GitHub](https://github.com/green-code-
 🤝 Contribution
 ---------------
 
-check [ecoCode repository](https://github.com/green-code-initiative/ecoCode)
+check [ecoCode](https://github.com/green-code-initiative/ecoCode) repository
 
 🤓 Main contributors
 --------------------
 
-check [ecoCode repository](https://github.com/green-code-initiative/ecoCode)
+check [ecoCode](https://github.com/green-code-initiative/ecoCode) repository
 
 Links
 -----
