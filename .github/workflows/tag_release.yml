@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ecocode-plugins
-          path: lib
+          path: target
       - name: Export UPLOAD_URL
         id: export_upload_url
         run: echo "upload_url=${{ steps.create_release.outputs.upload_url }}" >> $GITHUB_OUTPUT
@@ -58,7 +58,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ecocode-plugins
-          path: lib
+          path: target
       - name: Upload Release Asset - PHP Plugin
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
