@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - PHP rules moved from `ecoCode` repository to current repository
 - [#121](https://github.com/green-code-initiative/ecoCode/issues/121) new PHP rule : Multiple if-else statement + refactoring implementation
+- [#205](https://github.com/green-code-initiative/ecoCode/issues/205) compatibility with SonarQube 10.1
 
 ### Changed
 
