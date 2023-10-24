@@ -59,7 +59,7 @@ public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleReposito
             AvoidDoubleQuoteCheck.class,
             AvoidFullSQLRequestCheck.class,
             AvoidSQLRequestInLoopCheck.class,
-            AvoidTryCatchFinallyCheck_NOK_failsAllTryStatements.class,
+            AvoidTryCatchWithFileOpenedCheck.class,
             AvoidUsingGlobalVariablesCheck.class,
             IncrementCheck.class,
             NoFunctionCallWhenDeclaringForLoop.class,
