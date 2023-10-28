@@ -59,6 +59,17 @@ try {
 
 try {
     $file = 'file';
+    if ($file) {
+        echo 'Hello';
+    } elseif ($file == 'file2') {
+        $picture = fopen('myfile.txt', 'r'); // NOK {{Avoid the use of try-catch with a file open in try block}}
+    }
+} catch (Exception $e) {
+    echo 'Error opening $file : ' . $e->getMessage();
+}
+
+try {
+    $file = 'file';
     switch ($file) {
         case 'hello';
             $picture = fopen('myfile.txt', 'r'); // NOK {{Avoid the use of try-catch with a file open in try block}}
@@ -90,12 +101,48 @@ try {
 }
 
 try {
+    $file = 'toto';
+    switch ($file) {
+        case 'hello';
+            $picture = fopen('myfile.txt', 'r'); // NOK {{Avoid the use of try-catch with a file open in try block}}
+            break;
+        case 'hello2';
+            break;
+        default:
+            break;
+    }
+} catch (Exception $e) {
+    echo 'Error opening $file : ' . $e->getMessage();
+}
+
+try {
     $file = 'file';
     for ($i = 0; $i < 10; $i++) {
         foreach ($a as $b) {
             $picture = fopen('myfile.txt', 'r'); // NOK {{Avoid the use of try-catch with a file open in try block}}
         }
     }
+} catch (Exception $e) {
+    echo 'Error opening $file : ' . $e->getMessage();
+}
+
+try {
+    $i = 0;
+    while ($i < 10) {
+        $picture = fopen('myfile.txt', 'r'); // NOK {{Avoid the use of try-catch with a file open in try block}}
+        $i++;
+    }
+} catch (Exception $e) {
+    echo 'Error opening $file : ' . $e->getMessage();
+}
+
+try {
+    $i = 0;
+    do {
+        $picture = fopen('myfile.txt', 'r'); // NOK {{Avoid the use of try-catch with a file open in try block}}
+        $i++;
+    }
+    while ($i < 10);
 } catch (Exception $e) {
     echo 'Error opening $file : ' . $e->getMessage();
 }
