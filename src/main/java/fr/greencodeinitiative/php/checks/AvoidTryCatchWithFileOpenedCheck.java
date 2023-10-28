@@ -96,7 +96,7 @@ public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
                     visitTryStatement((TryStatementTree) stmt);
                     break;
                 default:
-                    throw new RuntimeException("Kind not handled: " + kind);
+                    throw new IllegalArgumentException("Kind not handled: " + kind);
             }
         }
     }
