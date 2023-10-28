@@ -56,28 +56,44 @@ public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
 
     private void visitStatementsList(List<StatementTree> lstStmts) {
         for (StatementTree stmt : lstStmts){
-            if (stmt.is(Tree.Kind.EXPRESSION_STATEMENT)) { // seulement si Expression
-                visitExpressionStatement(((ExpressionStatementTree) stmt).expression());
-            } else if (stmt.is(Tree.Kind.BLOCK)) {
-                visitStatementsList(((BlockTree) stmt).statements());
-            } else if(stmt.is(Tree.Kind.IF_STATEMENT) || stmt.is(Tree.Kind.ALTERNATIVE_IF_STATEMENT)) {
-                visitIfStatement((IfStatementTree) stmt);
-            }else if(stmt.is(Tree.Kind.FOR_STATEMENT) || stmt.is(Tree.Kind.ALTERNATIVE_FOR_STATEMENT)) {
-                visitStatementsList(((ForStatementTree) stmt).statements());
-            } else if(stmt.is(Tree.Kind.WHILE_STATEMENT) || stmt.is(Tree.Kind.ALTERNATIVE_WHILE_STATEMENT)) {
-                visitStatementsList(((WhileStatementTree) stmt).statements());
-            } else if(stmt.is(Tree.Kind.DO_WHILE_STATEMENT)) {
-                visitStatementsList(Arrays.asList(((DoWhileStatementTree) stmt).statement()));
-            } else if(stmt.is(Tree.Kind.FOREACH_STATEMENT) || stmt.is(Tree.Kind.ALTERNATIVE_FOREACH_STATEMENT)) {
-                visitStatementsList(((ForEachStatementTree) stmt).statements());
-            } else if(stmt.is(Tree.Kind.CASE_CLAUSE)) {
-                visitStatementsList(((CaseClauseTree) stmt).statements());
-            } else if(stmt.is(Tree.Kind.SWITCH_STATEMENT)) {
-                visitSwitchStatement((SwitchStatementTree) stmt);
-            } else if(stmt.is(Tree.Kind.DEFAULT_CLAUSE)) {
-                visitStatementsList(((DefaultClauseTree) stmt).statements());
-            } else if(stmt.is(Tree.Kind.TRY_STATEMENT)) {
-                visitTryStatement((TryStatementTree) stmt);
+            Tree.Kind kind = stmt.getKind();
+            switch (kind) {
+                case EXPRESSION_STATEMENT:
+                    visitExpressionStatement(((ExpressionStatementTree) stmt).expression());
+                    break;
+                case BLOCK:
+                    visitStatementsList(((BlockTree) stmt).statements());
+                    break;
+                case IF_STATEMENT:
+                case ALTERNATIVE_IF_STATEMENT:
+                    visitIfStatement((IfStatementTree) stmt);
+                    break;
+                case FOR_STATEMENT:
+                case ALTERNATIVE_FOR_STATEMENT:
+                    visitStatementsList(((ForStatementTree) stmt).statements());
+                    break;
+                case WHILE_STATEMENT:
+                case ALTERNATIVE_WHILE_STATEMENT:
+                    visitStatementsList(((WhileStatementTree) stmt).statements());
+                    break;
+                case DO_WHILE_STATEMENT:
+                    visitStatementsList(Arrays.asList(((DoWhileStatementTree) stmt).statement()));
+                    break;
+                case FOREACH_STATEMENT:
+                case ALTERNATIVE_FOREACH_STATEMENT:
+                    visitStatementsList(((ForEachStatementTree) stmt).statements());
+                    break;
+                case CASE_CLAUSE:
+                    visitStatementsList(((CaseClauseTree) stmt).statements());
+                    break;
+                case SWITCH_STATEMENT:
+                    visitSwitchStatement((SwitchStatementTree) stmt);
+                    break;
+                case DEFAULT_CLAUSE:
+                    visitStatementsList(((DefaultClauseTree) stmt).statements());
+                    break;
+                case TRY_STATEMENT:
+                    visitTryStatement((TryStatementTree) stmt);
             }
         }
     }
