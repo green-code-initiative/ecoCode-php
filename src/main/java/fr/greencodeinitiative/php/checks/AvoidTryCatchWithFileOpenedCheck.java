@@ -143,9 +143,9 @@ public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
 
     private void visitCallExpression(FunctionCallTree functionCall){
         String funcName = getFunctionNameFromCallExpression(functionCall);
-        if (funcName.startsWith("PDF_open")
-                || "fopen".equals(funcName)
-                || "readfile".equals(funcName)) {
+        if (funcName.toUpperCase().startsWith("PDF_OPEN")
+                || "fopen".equalsIgnoreCase(funcName)
+                || "readfile".equalsIgnoreCase(funcName)) {
             context().newIssue(this, functionCall, ERROR_MESSAGE);
         }
     }
