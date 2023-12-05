@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [#9](https://github.com/green-code-initiative/ecoCode-php/pull/9) Upgrade licence system and licence headers of Java files
+- [#13](https://github.com/green-code-initiative/ecoCode-php/issues/13) Add build number to manifest
 
 ### Deleted
 
