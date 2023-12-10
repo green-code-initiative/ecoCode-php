@@ -17,15 +17,12 @@
  */
 package fr.greencodeinitiative.php.checks;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.sonar.plugins.php.api.tests.PHPCheckTest;
 import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-/**
- * Test class to test the check implementation.
- */
 public class AvoidMultipleIfElseStatementCheckTest {
 
     @Test

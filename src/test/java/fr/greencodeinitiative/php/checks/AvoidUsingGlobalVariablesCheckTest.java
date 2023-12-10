@@ -17,7 +17,7 @@
  */
 package fr.greencodeinitiative.php.checks;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.sonar.plugins.php.api.tests.PHPCheckTest;
 import org.sonar.plugins.php.api.tests.PhpTestFile;
 
