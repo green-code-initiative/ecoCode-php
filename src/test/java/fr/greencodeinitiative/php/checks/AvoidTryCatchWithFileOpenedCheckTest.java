@@ -17,28 +17,17 @@
  */
 package fr.greencodeinitiative.php.checks;
 
-import java.util.Collections;
-import java.util.List;
+import java.io.File;
 
-import org.sonar.check.Rule;
-import org.sonar.plugins.php.api.tree.Tree;
-import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
-import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
+import org.junit.Test;
+import org.sonar.plugins.php.api.tests.PHPCheckTest;
+import org.sonar.plugins.php.api.tests.PhpTestFile;
 
-@Rule(key = "EC34")
-@DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S34")
-public class AvoidTryCatchFinallyCheck_NOK_failsAllTryStatements extends PHPSubscriptionCheck {
+public class AvoidTryCatchWithFileOpenedCheckTest {
 
-    public static final String ERROR_MESSAGE = "Avoid using try-catch";
-
-    @Override
-    public List<Tree.Kind> nodesToVisit() {
-        return Collections.singletonList(Tree.Kind.TRY_STATEMENT);
-    }
-
-    @Override
-    public void visitNode(Tree tree) {
-        context().newIssue(this, tree, ERROR_MESSAGE);
+    @Test
+    public void test() throws Exception {
+        PHPCheckTest.check(new AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidTryCatchWithFileOpenedCheck.php")));
     }
 
 }
