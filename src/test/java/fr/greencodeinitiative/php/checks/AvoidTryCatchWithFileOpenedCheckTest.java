@@ -23,10 +23,10 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-public class AvoidTryCatchWithFileOpenedCheckTest {
+class AvoidTryCatchWithFileOpenedCheckTest {
 
     @Test
-    public void test() throws Exception {
+    void test() throws Exception {
         PHPCheckTest.check(new AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidTryCatchWithFileOpenedCheck.php")));
     }
 

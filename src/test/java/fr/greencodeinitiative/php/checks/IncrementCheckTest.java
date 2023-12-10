@@ -23,10 +23,10 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-public class IncrementCheckTest {
+class IncrementCheckTest {
 
     @Test
-    public void test() throws Exception {
+    void test() throws Exception {
         PHPCheckTest.check(new IncrementCheck(), new PhpTestFile(new File("src/test/resources/checks/IncrementCheck.php")));
     }
 

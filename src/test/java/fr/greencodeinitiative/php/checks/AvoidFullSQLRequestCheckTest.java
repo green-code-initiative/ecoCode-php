@@ -23,10 +23,10 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-public class AvoidFullSQLRequestCheckTest {
+class AvoidFullSQLRequestCheckTest {
 
     @Test
-    public void test() {
+    void test() {
         PHPCheckTest.check(new AvoidFullSQLRequestCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidFullSQLRequest.php")));
     }
 
