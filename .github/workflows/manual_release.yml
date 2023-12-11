@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ecocode-plugins
-          path: lib
+          path: target/ecocode-php-plugin-${{ env.LAST_TAG }}.jar
       - name: Export LAST_TAG
         id: export_last_tag
         run: echo "last_tag=${{ env.LAST_TAG }}" >> $GITHUB_OUTPUT
@@ -81,15 +81,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ecocode-plugins
-          path: lib
+          path: target/ecocode-php-plugin-${{ needs.build.outputs.last_tag }}.jar
       - name: Upload Release Asset - PHP Plugin
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{needs.build.outputs.upload_url}}
-          asset_path: lib/ecocode-php-plugin-${{ needs.build.outputs.last_tag }}.jar
+          upload_url: ${{ needs.build.outputs.upload_url }}
+          asset_path: target/ecocode-php-plugin-${{ needs.build.outputs.last_tag }}.jar
           asset_name: ecocode-php-plugin-${{ needs.build.outputs.last_tag }}.jar
           asset_content_type: application/zip
 
