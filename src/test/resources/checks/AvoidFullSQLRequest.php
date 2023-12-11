@@ -10,6 +10,7 @@ class AvoidFullSQLRequest
     {
         OtherClass->SqlCall('SELECT * FROM'); // NOK {{Don't use the query SELECT * FROM}}
         OtherClass->SqlCall('SeLeCt DiStInCt * FrOm'); // NOK {{Don't use the query SELECT * FROM}}
+        OtherClass->SqlCall('SeLeCt `table.name`, *, `my_field` FrOm'); // NOK {{Don't use the query SELECT * FROM}}
         OtherClass->SqlCall('select name from');
     }
 

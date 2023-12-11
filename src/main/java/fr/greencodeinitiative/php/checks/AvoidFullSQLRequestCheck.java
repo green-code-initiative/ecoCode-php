@@ -17,10 +17,6 @@
  */
 package fr.greencodeinitiative.php.checks;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Pattern;
-
 import org.sonar.check.Rule;
 import org.sonar.plugins.php.api.tree.Tree;
 import org.sonar.plugins.php.api.tree.Tree.Kind;
@@ -28,25 +24,30 @@ import org.sonar.plugins.php.api.tree.expression.LiteralTree;
 import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Rule(key = "EC74")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S74")
 public class AvoidFullSQLRequestCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Don't use the query SELECT * FROM";
 
-    private static final Pattern PATTERN = Pattern.compile("(?i).*select.*\\*.*from.*");
+    private static final Pattern PATTERN = Pattern.compile("select(.*)from", Pattern.CASE_INSENSITIVE);
 
     @Override
     public List<Kind> nodesToVisit() {
-        return Arrays.asList(Kind.REGULAR_STRING_LITERAL);
+        return List.of(Kind.REGULAR_STRING_LITERAL);
     }
 
     @Override
     public void visitNode(Tree tree) {
-
         LiteralTree literal = (LiteralTree) tree;
-        if (PATTERN.matcher(literal.value()).matches()) {
+        Matcher matcher = PATTERN.matcher(literal.value());
+        if (matcher.find() && matcher.group(1).contains("*")) {
             context().newIssue(this, tree, ERROR_MESSAGE);
         }
     }
+
 }
