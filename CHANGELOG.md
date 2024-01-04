@@ -15,7 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#10](https://github.com/green-code-initiative/ecoCode-php/pull/10) Adding EC35 rule : EC35 rule replaces EC34 with a specific use case ("file not found" specific)
 - [#13](https://github.com/green-code-initiative/ecoCode-php/issues/13) Add build number to manifest
 - [#12](https://github.com/green-code-initiative/ecoCode-php/issues/12) Fix unit tests execution with Maven
-- Update ecocode-rules-specifications to 0.0.10
+- Update ecocode-rules-specifications to 1.4.6
+- README.md upgrade : docker test environment
 
 ### Deleted
 
