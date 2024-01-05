@@ -47,13 +47,13 @@ docker run -ti --rm \
 ... and configure local SonarQube (security config and quality profile : see [configuration](https://github.com/green-code-initiative/ecoCode-common/blob/main/doc/INSTALL.md#configuration-sonarqube) for more details).
 
 To install other `ecocode` plugins, you can also :
+
 - download each plugin separatly and copy the plugin (jar file) to `$SONAR_INSTALL_DIR/extensions/plugins` and restart SonarQube.
 - install different ecocode plugins with Marketplace (inside admin panel of SonarQube)
 
-Then you can use Python test project repository to test the environment : see README.md of [PHP test project](https://github.com/green-code-initiative/ecoCode-php-test-project)
+Then you can use PHP test project repository to test the environment : see README.md of [PHP test project](https://github.com/green-code-initiative/ecoCode-php-test-project)
 
 Finally, you can directly use a [all-in-one docker-compose](https://github.com/green-code-initiative/ecoCode-common/blob/main/doc/INSTALL.md#start-sonarqube-if-first-time)
-
 
 🛒 Distribution
 ------------------
