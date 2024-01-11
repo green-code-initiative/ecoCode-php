@@ -33,7 +33,7 @@ import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "EC35")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S34")
-@DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "EC34")
+@DeprecatedRuleKey(ruleKey = "EC34")
 
 public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
 
