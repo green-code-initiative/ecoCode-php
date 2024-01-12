@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [#17](https://github.com/green-code-initiative/ecoCode-php/issues/17) Correction of error with deprecated EC34 rule
+- Update ecocode-rules-specifications to 1.4.7
+
 ### Deleted
 
 ## [1.4.1] - 2024-01-06
@@ -36,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#121](https://github.com/green-code-initiative/ecoCode/issues/121) new PHP rule : Multiple if-else statement + refactoring implementation
 - [#205](https://github.com/green-code-initiative/ecoCode/issues/205) compatibility with SonarQube 10.1
 
-[unreleased]: https://github.com/green-code-initiative/ecoCode-php/compare/v1.4.1...HEAD
-[1.4.1]: https://github.com/green-code-initiative/ecoCode-php/compare/v1.4.0...1.4.1
-[1.4.0]: https://github.com/green-code-initiative/ecoCode-php/compare/v0.0.0...1.4.0
+## Comparison list
+
+[unreleased](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.1...HEAD)
+[1.4.1](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.0...1.4.1)
+[1.4.0](https://github.com/green-code-initiative/ecoCode-php/releases/tag/1.4.0)
