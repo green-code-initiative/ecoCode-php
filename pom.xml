@@ -61,7 +61,7 @@
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in ecocode repository -->
-        <ecocode-rules-specifications.version>1.5.2</ecocode-rules-specifications.version>
+        <ecocode-rules-specifications.version>1.5.3</ecocode-rules-specifications.version>
 
         <maven-shade.version>3.5.0</maven-shade.version>
 
