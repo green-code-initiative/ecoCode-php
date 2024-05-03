@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#20](https://github.com/green-code-initiative/ecoCode-php/issues/20) Add support for SonarQube 10.4 "DownloadOnlyWhenRequired" feature
 
 ### Changed
+- [#23](https://github.com/green-code-initiative/ecoCode-php/issues/23) deprecation of EC22 rule for PHP (waiting for measurement to prove it)
 
 ### Deleted
 
