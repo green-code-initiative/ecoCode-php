@@ -9,13 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Deleted
+
+## [1.4.3] - 2024-05-15
+
+### Added
+
 - [#20](https://github.com/green-code-initiative/ecoCode-php/issues/20) Add support for SonarQube 10.4 "DownloadOnlyWhenRequired" feature
 
 ### Changed
 - [#23](https://github.com/green-code-initiative/ecoCode-php/issues/23) deprecation of EC22 rule for PHP (waiting for measurement to prove it)
 - check Sonarqube 10.5.1 compatibility + update docker files and README.md
-
-### Deleted
 
 ## [1.4.2] - 2024-01-12
 
@@ -49,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Comparison list
 
-[unreleased](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.2...HEAD)
+[unreleased](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.3...HEAD)
+[1.4.3](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.2...1.4.3)
 [1.4.2](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.1...1.4.2)
 [1.4.1](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.0...1.4.1)
 [1.4.0](https://github.com/green-code-initiative/ecoCode-php/releases/tag/1.4.0)
