@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - [#23](https://github.com/green-code-initiative/ecoCode-php/issues/23) deprecation of EC22 rule for PHP (waiting for measurement to prove it)
+- check Sonarqube 10.5.1 compatibility + update docker files and README.md
 
 ### Deleted
 
