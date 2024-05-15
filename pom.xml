@@ -52,12 +52,12 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
         <!-- max version with SonarQube 10.0 -->
-        <sonarqube.version>9.4.0.54424</sonarqube.version>
+        <sonarqube.version>10.7.0.2191</sonarqube.version>
 
         <!-- max version with SonarQube 10.0 : check lib/extension directory -->
-        <sonarphp.version>3.28.0.9490</sonarphp.version>
+        <sonarphp.version>3.35.0.11659</sonarphp.version>
 
-        <sonar-analyzer-commons.version>2.5.0.1358</sonar-analyzer-commons.version>
+        <sonar-analyzer-commons.version>2.10.0.2849</sonar-analyzer-commons.version>
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in ecocode repository -->
@@ -90,7 +90,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
+            <groupId>org.sonarsource.api.plugin</groupId>
             <artifactId>sonar-plugin-api</artifactId>
             <version>${sonarqube.version}</version>
             <scope>provided</scope>
