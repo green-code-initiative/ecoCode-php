@@ -26,7 +26,7 @@ import java.io.File;
 class AvoidGettingSizeCollectionInLoopTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new AvoidGettingSizeCollectionInLoopCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidGettingSizeCollectionInLoop.php")));
     }
 

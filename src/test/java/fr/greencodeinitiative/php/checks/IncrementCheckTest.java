@@ -26,7 +26,7 @@ import java.io.File;
 class IncrementCheckTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new IncrementCheck(), new PhpTestFile(new File("src/test/resources/checks/IncrementCheck.php")));
     }
 

@@ -26,7 +26,7 @@ import java.io.File;
 class NoFunctionCallWhenDeclaringForLoopTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new NoFunctionCallWhenDeclaringForLoop(), new PhpTestFile(new File("src/test/resources/checks/NoFunctionCallWhenDeclaringForLoop.php")));
     }
 
