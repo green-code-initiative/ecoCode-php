@@ -26,7 +26,7 @@ import java.io.File;
 class AvoidDoubleQuoteCheckTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new AvoidDoubleQuoteCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidDoubleQuote.php")));
     }
 

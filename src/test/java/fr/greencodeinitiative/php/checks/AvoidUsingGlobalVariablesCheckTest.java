@@ -26,7 +26,7 @@ import java.io.File;
 class AvoidUsingGlobalVariablesCheckTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new AvoidUsingGlobalVariablesCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidUsingGlobalVariablesCheck.php")));
     }
 

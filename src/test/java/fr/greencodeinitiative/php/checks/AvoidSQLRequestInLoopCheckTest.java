@@ -26,7 +26,7 @@ import java.io.File;
 class AvoidSQLRequestInLoopCheckTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new AvoidSQLRequestInLoopCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidSQLRequestInLoop.php")));
     }
 

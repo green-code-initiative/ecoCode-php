@@ -26,7 +26,7 @@ import java.io.File;
 class UseOfMethodsForBasicOperationsTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new UseOfMethodsForBasicOperations(), new PhpTestFile(new File("src/test/resources/checks/UseOfMethodsForBasicOperations.php")));
     }
 

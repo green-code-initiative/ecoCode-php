@@ -26,7 +26,7 @@ import java.io.File;
 class AvoidTryCatchWithFileOpenedCheckTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidTryCatchWithFileOpenedCheck.php")));
     }
 

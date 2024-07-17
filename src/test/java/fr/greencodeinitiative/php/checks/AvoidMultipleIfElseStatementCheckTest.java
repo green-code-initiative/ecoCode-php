@@ -26,7 +26,7 @@ import java.io.File;
 class AvoidMultipleIfElseStatementCheckTest {
 
     @Test
-    void test() throws Exception {
+    void test() {
         PHPCheckTest.check(new AvoidMultipleIfElseStatementCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidMultipleIfElseStatement.php")));
     }
 
