@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [#28](https://github.com/green-code-initiative/ecoCode-php/issues/28) Add support for SonarQube 10.6.0
+
 ### Deleted
 
 ## [1.4.3] - 2024-05-15
