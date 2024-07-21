@@ -40,7 +40,7 @@
 
     <properties>
 
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
@@ -51,24 +51,30 @@
         <sonar.organization>green-code-initiative</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-        <!-- max version with SonarQube 10.0 -->
-        <sonarqube.version>9.4.0.54424</sonarqube.version>
+        <!-- max version accepted by SonarQube 10.6.0 but not by 9.9.0 -->
+        <!--<sonarqube.version>10.7.0.2191</sonarqube.version>-->
 
-        <!-- max version with SonarQube 10.0 : check lib/extension directory -->
-        <sonarphp.version>3.28.0.9490</sonarphp.version>
+        <!-- max version accepted by SonarQube 9.9.0 -->
+        <sonarqube.version>9.14.0.375</sonarqube.version>
 
-        <sonar-analyzer-commons.version>2.5.0.1358</sonar-analyzer-commons.version>
+        <sonarphp.version>3.36.0.11813</sonarphp.version>
+
+        <sonar-analyzer-commons.version>2.11.0.2861</sonar-analyzer-commons.version>
+
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in ecocode repository -->
-        <ecocode-rules-specifications.version>1.5.3</ecocode-rules-specifications.version>
+        <ecocode-rules-specifications.version>1.6.2</ecocode-rules-specifications.version>
 
-        <maven-shade.version>3.5.0</maven-shade.version>
+        <maven-shade.version>3.6.0</maven-shade.version>
 
-        <junit.jupiter.version>5.9.2</junit.jupiter.version>
-        <assertj.version>3.24.2</assertj.version>
-        <mockito.version>5.3.1</mockito.version>
-        <jacoco.version>0.8.11</jacoco.version>
+        <junit.jupiter.version>5.10.3</junit.jupiter.version>
+
+        <assertj.version>3.26.3</assertj.version>
+
+        <mockito.version>5.12.0</mockito.version>
+
+        <jacoco.version>0.8.12</jacoco.version>
 
     </properties>
 
@@ -90,7 +96,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
+            <groupId>org.sonarsource.api.plugin</groupId>
             <artifactId>sonar-plugin-api</artifactId>
             <version>${sonarqube.version}</version>
             <scope>provided</scope>
@@ -101,6 +107,14 @@
             <groupId>org.sonarsource.analyzer-commons</groupId>
             <artifactId>sonar-analyzer-commons</artifactId>
             <version>${sonar-analyzer-commons.version}</version>
+        </dependency>
+
+        <!-- To keep because of dependency used by sonar-analyzer-commons for Unit Tests -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.13</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- TEST sources dependencies -->
@@ -132,12 +146,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.13.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.3.1</version>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -182,7 +196,7 @@
                 <!-- plugin to generate a unique build number for sonar-packaging-maven-plugin : usage of buildNumber variable -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -232,7 +246,7 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>4.1</version>
+                <version>4.5</version>
                 <configuration>
                     <properties>
                         <owner>Green Code Initiative</owner>
