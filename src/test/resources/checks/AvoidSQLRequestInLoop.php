@@ -6,7 +6,7 @@ class AvoidFullSQLRequest
     private $dbName = 'name';
     private $dbPass = 'pass';
     private $dbHost = 'host';
-    private $query = 'SELECT * FROM Table';
+    private $query = 'SELECT col1 FROM Table';
     private $otherQuery = 'SELECT name FROM User';
     private $connection;
     public function launchSQLRequest($someCondition)

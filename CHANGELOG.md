@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - upgrade docker system
 - [#30](https://github.com/green-code-initiative/ecoCode-php/issues/30) Upgrade dependencies to latest ones - technical incompatibilities for SonarQube before 9.9 version
+- clean unit test files (to have less other issues)
 
 ### Deleted
 

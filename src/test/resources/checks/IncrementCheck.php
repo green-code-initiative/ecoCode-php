@@ -3,7 +3,8 @@
 function foo()
 {
     $counter = 0;
-    return $counter++; // NOK {{Remove the usage of $i++. prefer ++$i}}
+    $counter++; // NOK {{Remove the usage of $i++. prefer ++$i}}
+    return $counter;
 }
 
 function bar()
