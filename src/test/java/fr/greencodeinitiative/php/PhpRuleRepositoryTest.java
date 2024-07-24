@@ -36,30 +36,6 @@ class PhpRuleRepositoryTest {
 
     @BeforeEach
   void init() {
-    // TODO: Remove this check after Git repo split
-    /*
-      On an IDE (like IntelliJ), if the developer runs the unit tests without building/generating the Maven goals on the
-      "ecocode-rules-specifications" module before, the unit tests will not see the generated HTML descriptions (from ASCIIDOC files).
-      The developer must therefore configure his IDE to build the `ecocode-rules-specifications` module before launching the Tests.
-
-      When the `php-plugin` submodule is in a specific Git repository, `ecocode-rules-specifications` will be fetched from a classic
-      external Maven dependency. There will therefore no longer be any need to perform this specific configuration.
-     */
-    if (PhpRuleRepository.class.getResource("/io/ecocode/rules/php/EC4.json") == null) {
-      String message = "'ecocode-rules-specification' resources corrupted. Please check build of 'ecocode-rules-specification' module";
-      if (System.getProperties().keySet().stream().anyMatch(k -> k.toString().startsWith("idea."))) {
-        message += "\n\nOn 'IntelliJ IDEA':" +
-                "\n1. go to settings :" +
-                "\n   > Build, Execution, Deployment > Build Tools > Maven > Runner" +
-                "\n2. check option:" +
-                "\n   > Delegate IDE build/run actions to Maven" +
-                "\n3. Click on menu: " +
-                "\n   > Build > Build Project"
-        ;
-      }
-      fail(message);
-    }
-
     final SonarRuntime sonarRuntime = mock(SonarRuntime.class);
     doReturn(Version.create(0, 0)).when(sonarRuntime).getApiVersion();
     PhpRuleRepository rulesDefinition = new PhpRuleRepository(sonarRuntime);
