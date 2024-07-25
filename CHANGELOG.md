@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Deleted
 
+## [1.5.1] - 2024-07-25
+
+### Changed
+
+- update tag workflow to use JDK 17
+
 ## [1.5.0] - 2024-07-25
 
 ### Changed
