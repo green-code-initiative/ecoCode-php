@@ -21,60 +21,76 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.reflections.Reflections;
 import org.sonar.api.SonarRuntime;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.utils.Version;
+import org.sonar.check.Rule;
+
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 class PhpRuleRepositoryTest {
 
-  private RulesDefinition.Repository repository;
+    private PhpRuleRepository rulesDefinition;
+    private RulesDefinition.Repository repository;
 
     @BeforeEach
-  void init() {
-    final SonarRuntime sonarRuntime = mock(SonarRuntime.class);
-    doReturn(Version.create(0, 0)).when(sonarRuntime).getApiVersion();
-    PhpRuleRepository rulesDefinition = new PhpRuleRepository(sonarRuntime);
-    RulesDefinition.Context context = new RulesDefinition.Context();
-    rulesDefinition.define(context);
-    repository = context.repository(rulesDefinition.repositoryKey());
-  }
+    void init() {
+        final SonarRuntime sonarRuntime = mock(SonarRuntime.class);
+        doReturn(Version.create(0, 0)).when(sonarRuntime).getApiVersion();
+        rulesDefinition = new PhpRuleRepository(sonarRuntime);
+        RulesDefinition.Context context = new RulesDefinition.Context();
+        rulesDefinition.define(context);
+        repository = context.repository(rulesDefinition.repositoryKey());
+    }
 
-  @Test
-  @DisplayName("Test repository metadata")
-  void testMetadata() {
-    assertThat(repository.name()).isEqualTo("ecoCode");
-    assertThat(repository.language()).isEqualTo("php");
-    assertThat(repository.key()).isEqualTo("ecocode-php");
-  }
+    @Test
+    @DisplayName("Test repository metadata")
+    void testMetadata() {
+        assertThat(repository.name()).isEqualTo("ecoCode");
+        assertThat(repository.language()).isEqualTo("php");
+        assertThat(repository.key()).isEqualTo("ecocode-php");
+    }
 
-  @Test
-  void testRegistredRules() {
-    assertThat(repository.rules()).hasSize(10);
-  }
+    @Test
+    void testRegistredRules() {
+        assertThat(rulesDefinition.checkClasses())
+                .describedAs("All implemented rules must be registered into " + PhpRuleRepository.class)
+                .containsExactlyInAnyOrder(getDefinedRules().toArray(new Class[0]));
+    }
 
-  @Test
-  @DisplayName("All rule keys must be prefixed by 'EC'")
-  void testRuleKeyPrefix() {
-    SoftAssertions assertions = new SoftAssertions();
-    repository.rules().forEach(
-            rule -> assertions.assertThat(rule.key()).startsWith("EC")
-    );
-    assertions.assertAll();
-  }
+    @Test
+    void checkNumberRules() {
+        assertThat(repository.rules()).hasSize(PhpRuleRepository.ANNOTATED_RULE_CLASSES.size());
+    }
 
-  @Test
-  void testAllRuleParametersHaveDescription() {
-    SoftAssertions assertions = new SoftAssertions();
-    repository.rules().stream()
-            .flatMap(rule -> rule.params().stream())
-            .forEach(param -> assertions.assertThat(param.description())
-                    .as("description for " + param.key())
-                    .isNotEmpty());
-    assertions.assertAll();
-  }
+    @Test
+    @DisplayName("All rule keys must be prefixed by 'EC'")
+    void testRuleKeyPrefix() {
+        SoftAssertions assertions = new SoftAssertions();
+        repository.rules().forEach(
+                rule -> assertions.assertThat(rule.key()).startsWith("EC")
+        );
+        assertions.assertAll();
+    }
+
+    @Test
+    void testAllRuleParametersHaveDescription() {
+        SoftAssertions assertions = new SoftAssertions();
+        repository.rules().stream()
+                .flatMap(rule -> rule.params().stream())
+                .forEach(param -> assertions.assertThat(param.description())
+                        .as("description for " + param.key())
+                        .isNotEmpty());
+        assertions.assertAll();
+    }
+
+    private static Set<Class<?>> getDefinedRules() {
+        Reflections r = new Reflections(PhpRuleRepository.class.getPackageName() + ".checks");
+        return r.getTypesAnnotatedWith(Rule.class);
+    }
 }

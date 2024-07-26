@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [#34](https://github.com/green-code-initiative/ecoCode-php/issues/34) Add test to ensure all Rules are registered
+
 ### Deleted
 
 ## [1.5.1] - 2024-07-25
@@ -24,7 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - upgrade docker system
-- [#30](https://github.com/green-code-initiative/ecoCode-php/issues/30) Upgrade dependencies to latest ones - technical incompatibilities for SonarQube before 9.9 version
+- [#30](https://github.com/green-code-initiative/ecoCode-php/issues/30) Upgrade dependencies to latest ones - technical
+  incompatibilities for SonarQube before 9.9 version
 - clean unit test files (to have less other issues)
 
 ## [1.4.4] - 2024-07-19
@@ -37,10 +40,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- [#20](https://github.com/green-code-initiative/ecoCode-php/issues/20) Add support for SonarQube 10.4 "DownloadOnlyWhenRequired" feature
+- [#20](https://github.com/green-code-initiative/ecoCode-php/issues/20) Add support for SonarQube 10.4 "
+  DownloadOnlyWhenRequired" feature
 
 ### Changed
-- [#23](https://github.com/green-code-initiative/ecoCode-php/issues/23) deprecation of EC22 rule for PHP (waiting for measurement to prove it)
+
+- [#23](https://github.com/green-code-initiative/ecoCode-php/issues/23) deprecation of EC22 rule for PHP (waiting for
+  measurement to prove it)
 - check Sonarqube 10.5.1 compatibility + update docker files and README.md
 
 ## [1.4.2] - 2024-01-12
@@ -58,8 +64,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [#9](https://github.com/green-code-initiative/ecoCode-php/pull/9) Upgrade licence system and licence headers of Java files
-- [#10](https://github.com/green-code-initiative/ecoCode-php/pull/10) Adding EC35 rule : EC35 rule replaces EC34 with a specific use case ("file not found" specific)
+- [#9](https://github.com/green-code-initiative/ecoCode-php/pull/9) Upgrade licence system and licence headers of Java
+  files
+- [#10](https://github.com/green-code-initiative/ecoCode-php/pull/10) Adding EC35 rule : EC35 rule replaces EC34 with a
+  specific use case ("file not found" specific)
 - [#13](https://github.com/green-code-initiative/ecoCode-php/issues/13) Add build number to manifest
 - [#12](https://github.com/green-code-initiative/ecoCode-php/issues/12) Fix unit tests execution with Maven
 - Update ecocode-rules-specifications to 1.4.6
@@ -70,7 +78,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - PHP rules moved from `ecoCode` repository to current repository
-- [#121](https://github.com/green-code-initiative/ecoCode/issues/121) new PHP rule : Multiple if-else statement + refactoring implementation
+- [#121](https://github.com/green-code-initiative/ecoCode/issues/121) new PHP rule : Multiple if-else statement +
+  refactoring implementation
 - [#205](https://github.com/green-code-initiative/ecoCode/issues/205) compatibility with SonarQube 10.1
 
 ## Comparison list
