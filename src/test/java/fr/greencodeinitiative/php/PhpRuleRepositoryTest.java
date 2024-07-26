@@ -21,9 +21,13 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.reflections.Reflections;
 import org.sonar.api.SonarRuntime;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.utils.Version;
+import org.sonar.check.Rule;
+
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
@@ -31,13 +35,14 @@ import static org.mockito.Mockito.mock;
 
 class PhpRuleRepositoryTest {
 
+    private PhpRuleRepository rulesDefinition;
     private RulesDefinition.Repository repository;
 
     @BeforeEach
     void init() {
         final SonarRuntime sonarRuntime = mock(SonarRuntime.class);
         doReturn(Version.create(0, 0)).when(sonarRuntime).getApiVersion();
-        PhpRuleRepository rulesDefinition = new PhpRuleRepository(sonarRuntime);
+        rulesDefinition = new PhpRuleRepository(sonarRuntime);
         RulesDefinition.Context context = new RulesDefinition.Context();
         rulesDefinition.define(context);
         repository = context.repository(rulesDefinition.repositoryKey());
@@ -53,7 +58,14 @@ class PhpRuleRepositoryTest {
 
     @Test
     void testRegistredRules() {
-        assertThat(repository.rules()).hasSize(10);
+        assertThat(rulesDefinition.checkClasses())
+                .describedAs("All implemented rules must be registered into " + PhpRuleRepository.class)
+                .containsExactlyInAnyOrder(getDefinedRules().toArray(new Class[0]));
+    }
+
+    @Test
+    void checkNumberRules() {
+        assertThat(repository.rules()).hasSize(PhpRuleRepository.ANNOTATED_RULE_CLASSES.size());
     }
 
     @Test
@@ -75,5 +87,10 @@ class PhpRuleRepositoryTest {
                         .as("description for " + param.key())
                         .isNotEmpty());
         assertions.assertAll();
+    }
+
+    private static Set<Class<?>> getDefinedRules() {
+        Reflections r = new Reflections(PhpRuleRepository.class.getPackageName() + ".checks");
+        return r.getTypesAnnotatedWith(Rule.class);
     }
 }

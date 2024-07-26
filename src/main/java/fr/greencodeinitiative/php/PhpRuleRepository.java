@@ -27,6 +27,19 @@ import java.util.List;
 
 public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleRepository {
 
+    static final List<Class<?>> ANNOTATED_RULE_CLASSES = List.of(
+            AvoidGettingSizeCollectionInLoopCheck.class,
+            AvoidDoubleQuoteCheck.class,
+            AvoidFullSQLRequestCheck.class,
+            AvoidSQLRequestInLoopCheck.class,
+            AvoidTryCatchWithFileOpenedCheck.class,
+            AvoidUsingGlobalVariablesCheck.class,
+            IncrementCheck.class,
+            NoFunctionCallWhenDeclaringForLoop.class,
+            UseOfMethodsForBasicOperations.class,
+            AvoidMultipleIfElseStatementCheck.class
+    );
+
     private static final String LANGUAGE = "php";
     private static final String NAME = "ecoCode";
     private static final String RESOURCE_BASE_PATH = "io/ecocode/rules/php";
@@ -53,17 +66,6 @@ public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleReposito
 
     @Override
     public List<Class<?>> checkClasses() {
-        return List.of(
-                AvoidGettingSizeCollectionInLoopCheck.class,
-                AvoidDoubleQuoteCheck.class,
-                AvoidFullSQLRequestCheck.class,
-                AvoidSQLRequestInLoopCheck.class,
-                AvoidTryCatchWithFileOpenedCheck.class,
-                AvoidUsingGlobalVariablesCheck.class,
-                IncrementCheck.class,
-                NoFunctionCallWhenDeclaringForLoop.class,
-                UseOfMethodsForBasicOperations.class,
-                AvoidMultipleIfElseStatementCheck.class
-        );
+        return ANNOTATED_RULE_CLASSES;
     }
 }
