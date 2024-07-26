@@ -17,54 +17,53 @@
  */
 package fr.greencodeinitiative.php;
 
-import java.util.List;
-
-import fr.greencodeinitiative.php.checks.AvoidGettingSizeCollectionInLoopCheck;
 import fr.greencodeinitiative.php.checks.*;
 import org.sonar.api.SonarRuntime;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.plugins.php.api.visitors.PHPCustomRuleRepository;
 import org.sonarsource.analyzer.commons.RuleMetadataLoader;
 
+import java.util.List;
+
 public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleRepository {
 
-  private static final String LANGUAGE = "php";
-  private static final String NAME = "ecoCode";
-  private static final String RESOURCE_BASE_PATH = "io/ecocode/rules/php";
-  private static final String REPOSITORY_KEY = "ecocode-php";
+    private static final String LANGUAGE = "php";
+    private static final String NAME = "ecoCode";
+    private static final String RESOURCE_BASE_PATH = "io/ecocode/rules/php";
+    private static final String REPOSITORY_KEY = "ecocode-php";
 
-  private final SonarRuntime sonarRuntime;
+    private final SonarRuntime sonarRuntime;
 
-  public PhpRuleRepository(SonarRuntime sonarRuntime) {
-    this.sonarRuntime = sonarRuntime;
-  }
+    public PhpRuleRepository(SonarRuntime sonarRuntime) {
+        this.sonarRuntime = sonarRuntime;
+    }
 
-  @Override
-  public void define(Context context) {
-    NewRepository repository = context.createRepository(REPOSITORY_KEY, LANGUAGE).setName(NAME);
-    RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(RESOURCE_BASE_PATH, sonarRuntime);
-    ruleMetadataLoader.addRulesByAnnotatedClass(repository, checkClasses());
-    repository.done();
-  }
+    @Override
+    public void define(Context context) {
+        NewRepository repository = context.createRepository(REPOSITORY_KEY, LANGUAGE).setName(NAME);
+        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(RESOURCE_BASE_PATH, sonarRuntime);
+        ruleMetadataLoader.addRulesByAnnotatedClass(repository, checkClasses());
+        repository.done();
+    }
 
-  @Override
-  public String repositoryKey() {
-    return REPOSITORY_KEY;
-  }
+    @Override
+    public String repositoryKey() {
+        return REPOSITORY_KEY;
+    }
 
-  @Override
-  public List<Class<?>> checkClasses() {
-    return List.of(
-            AvoidGettingSizeCollectionInLoopCheck.class,
-            AvoidDoubleQuoteCheck.class,
-            AvoidFullSQLRequestCheck.class,
-            AvoidSQLRequestInLoopCheck.class,
-            AvoidTryCatchWithFileOpenedCheck.class,
-            AvoidUsingGlobalVariablesCheck.class,
-            IncrementCheck.class,
-            NoFunctionCallWhenDeclaringForLoop.class,
-            UseOfMethodsForBasicOperations.class,
-            AvoidMultipleIfElseStatementCheck.class
-    );
-  }
+    @Override
+    public List<Class<?>> checkClasses() {
+        return List.of(
+                AvoidGettingSizeCollectionInLoopCheck.class,
+                AvoidDoubleQuoteCheck.class,
+                AvoidFullSQLRequestCheck.class,
+                AvoidSQLRequestInLoopCheck.class,
+                AvoidTryCatchWithFileOpenedCheck.class,
+                AvoidUsingGlobalVariablesCheck.class,
+                IncrementCheck.class,
+                NoFunctionCallWhenDeclaringForLoop.class,
+                UseOfMethodsForBasicOperations.class,
+                AvoidMultipleIfElseStatementCheck.class
+        );
+    }
 }
