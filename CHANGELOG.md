@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [#34](https://github.com/green-code-initiative/ecoCode-php/issues/34) Add test to ensure all Rules are registered
+
 ### Deleted
 
 ## [1.5.1] - 2024-07-25
